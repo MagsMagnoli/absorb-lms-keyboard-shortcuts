@@ -1,0 +1,1 @@
+absorb-lms-keyboard-shortcuts
