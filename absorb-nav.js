@@ -72,8 +72,6 @@ javascript: void (function() {
       return;
     }
 
-    console.log('items', items);
-
     if (activeItem == null) {
       activeItem = items[0];
       activeItemIdx = 0;
