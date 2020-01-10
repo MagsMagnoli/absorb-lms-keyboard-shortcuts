@@ -26,7 +26,12 @@ javascript: void (function() {
   frameDoc.addEventListener('keydown', navigationListener);
 
   console.info(
-    "Absorb shortcuts initialized. Press 'Q' to query items. Press 'W' and 'S' to navigate elements. Press 'A' and 'D' to execute primary and secondary actions. Press left and right arrows to navigate pages. Press 'Escape' to quit",
+    'Absorb shortcuts initialized\n' +
+      "Press 'Q' to query items\n" +
+      "Press 'W' and 'S' to navigate elements\n" +
+      "Press 'A' and 'D' to execute primary and secondary actions\n" +
+      'Press left and right arrows to navigate pages\n' +
+      "Press 'Escape' to quit",
   );
 
   queryAllItems();
@@ -96,15 +101,18 @@ javascript: void (function() {
   }
 
   function highlightQueriedElement(elm) {
-    elm.style.border = '3px solid black';
+    elm.style.border = '3px dotted black';
+    elm.style.margin = '3px';
   }
 
   function highlightInactiveElement(elm) {
-    elm.style.border = '5px dotted black';
+    elm.style.border = '3px solid black';
+    elm.style.margin = '3px';
   }
 
   function highlightActiveElement(elm) {
-    elm.style.border = '5px solid red';
+    elm.style.border = '3px solid red';
+    elm.style.margin = '3px';
   }
 
   function setActiveItem(item) {
@@ -140,11 +148,13 @@ javascript: void (function() {
         const next = findNavNext();
         navNext(next);
         clearData();
+        setTimeout(queryAllItems, 750);
         break;
       case 37:
         const prev = findNavPrev();
         navPrev(prev);
         clearData();
+        setTimeout(queryAllItems, 750);
         break;
       case 27:
         frameDoc.removeEventListener('keydown', navigationListener);
